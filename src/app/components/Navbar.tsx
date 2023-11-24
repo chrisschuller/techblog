@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import Text from "./Text";
 import Stack from "./Stack";
 import Button from "./Button";
+import Link from "./Link";
 
 export const NavbarContainer = styled(Stack)`
   height: 8vh;
@@ -17,10 +18,12 @@ export function Navbar() {
       style={{ padding: "20px" }}
     >
       <Stack justify="center" align="center">
-        <Text size="lg">reactor.</Text>
-        <Text size="lg" color={"primary"}>
-          dev
-        </Text>
+        <Link href={"/"}>
+          <Text size="lg">reactor.</Text>
+          <Text size="lg" color={"primary"}>
+            dev
+          </Text>
+        </Link>
       </Stack>
       <Stack gap={"7px"} justify="center" align="center">
         <Button>Login</Button>

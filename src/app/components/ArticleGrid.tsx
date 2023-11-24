@@ -1,5 +1,6 @@
 import ArticleCard from "./ArticleCard";
 import Grid from "./Grid";
+import Link from "./Link";
 import Text from "./Text";
 
 interface ArticleGridProps {
@@ -27,16 +28,18 @@ function ArticleGrid({ title }: ArticleGridProps) {
       >
         <Text size="h1">{title}</Text>
       </Grid.Item>
-      <ArticleCard
-        id={"1"}
-        title={"Creating a component in React"}
-        description="Some description about the article in which we create a component in React. Here is some more description to see how this will change the layout."
-        imageUrl={"https://"}
-        author={"Christian Schuller"}
-        authorImageUrl={"https://"}
-        date={"22.11.2023"}
-        readTime={5}
-      />
+      <Link href={"/articles"}>
+        <ArticleCard
+          id={"1"}
+          title={"Creating a component in React"}
+          description="Some description about the article in which we create a component in React. Here is some more description to see how this will change the layout."
+          imageUrl={"https://"}
+          author={"Christian Schuller"}
+          authorImageUrl={"https://"}
+          date={"22.11.2023"}
+          readTime={5}
+        />
+      </Link>
       <ArticleCard
         id={"1"}
         title={"Creating a component in React"}
