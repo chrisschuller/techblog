@@ -48,10 +48,24 @@ function ArticleCard({
         <Text size={"h4"} bold>
           {title}
         </Text>
-        <Text style={{ display: "block", marginBottom: "20px" }}>
-          {description}
-        </Text>
+        <Text style={{ display: "block" }}>{description}</Text>
       </div>
+      <Stack direction="row" gap={"10px"} style={{ margin: "20px 0" }}>
+        <Avatar
+          size={"35px"}
+          imageUrl={
+            "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+          }
+        />
+        <Stack direction="column" gap={"5px"}>
+          <Text bold size={"sm"}>
+            {"Example Name"}
+          </Text>
+          <Text size={"sm"} color={"secondary"}>
+            {"22.11.2023"} - {"4"} min read
+          </Text>
+        </Stack>
+      </Stack>
     </ArticleCardContainer>
   );
 }
