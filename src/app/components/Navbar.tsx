@@ -19,7 +19,7 @@ export function Navbar() {
       <Stack justify="center" align="center">
         <Text size="lg">reactor.</Text>
         <Text size="lg" color={"primary"}>
-          babe
+          dev
         </Text>
       </Stack>
       <Stack gap={"7px"} justify="center" align="center">
