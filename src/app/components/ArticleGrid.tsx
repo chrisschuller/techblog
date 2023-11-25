@@ -4,6 +4,9 @@ import Link from "./Link";
 import Text from "./Text";
 
 interface Article {
+  sys: {
+    publishedAt: string;
+  };
   slug: string;
   title: string;
   description: string;
@@ -43,7 +46,15 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
         <Text size="h1">{title}</Text>
       </Grid.Item>
       {articles.map(
-        ({ slug, title, description, articleImage, author, authorImage }) => {
+        ({
+          slug,
+          title,
+          description,
+          articleImage,
+          author,
+          authorImage,
+          sys,
+        }) => {
           return (
             <Link href={`/articles/${slug}`}>
               <ArticleCard
@@ -53,7 +64,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
                 imageUrl={articleImage.url}
                 author={author}
                 authorImageUrl={authorImage.url}
-                date={"22.11.2023"}
+                date={sys.publishedAt}
                 readTime={5}
               />
             </Link>

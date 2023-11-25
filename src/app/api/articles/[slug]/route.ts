@@ -8,6 +8,9 @@ export async function GET(
   const query = `query($preview: Boolean) {
     articleCollection(where: { slug: "${slug}" }, preview: $preview) {
       items {
+        sys{
+          publishedAt
+        }
         title
         description
         articleImage {

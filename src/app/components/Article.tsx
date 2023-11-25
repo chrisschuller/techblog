@@ -3,12 +3,16 @@ import Text from "./Text";
 import PreviewImage from "./PreviewImage";
 import Stack from "./Stack";
 import Avatar from "./Avatar";
+import { convertToGermanDateFormat } from "./utils";
 
 const ArticleContainer = styled.div`
   max-width: 600px;
 `;
 
 interface Article {
+  sys: {
+    publishedAt: string;
+  };
   title: string;
   author: string;
   authorImage: {
@@ -35,7 +39,8 @@ function Article({ article }: ArticleProps) {
             {article.author}
           </Text>
           <Text size={"sm"} color={"secondary"}>
-            {"22.11.2023"} - {"4"} min read
+            {convertToGermanDateFormat(article.sys.publishedAt)} - {"5"} min
+            read
           </Text>
         </Stack>
       </Stack>

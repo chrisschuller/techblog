@@ -3,7 +3,7 @@ query($preview: Boolean) {
   articleCollection(limit: 10, preview: $preview){
     items{
       sys{
-        firstPublishedAt
+        publishedAt
       }
       slug,
       title,
@@ -13,12 +13,6 @@ query($preview: Boolean) {
       authorImage{
         url
       },
-      content{json},
-      recommendedArticlesCollection{
-        items{
-          title
-        }
-      }
     }
   }
 }

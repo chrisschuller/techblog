@@ -4,6 +4,7 @@ import Stack from "./Stack";
 import Text from "./Text";
 import PreviewImage from "./PreviewImage";
 import Avatar from "./Avatar";
+import { convertToGermanDateFormat } from "./utils";
 
 interface ArticleCardProps {
   id: string;
@@ -56,7 +57,7 @@ function ArticleCard({
             {author}
           </Text>
           <Text size={"sm"} color={"secondary"}>
-            {"22.11.2023"} - {"4"} min read
+            {convertToGermanDateFormat(date)} - {readTime} min read
           </Text>
         </Stack>
       </Stack>
