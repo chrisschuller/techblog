@@ -56,7 +56,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
           sys,
         }) => {
           return (
-            <Link href={`/articles/${slug}`}>
+            <Link href={`/articles/${slug}`} key={slug}>
               <ArticleCard
                 id={slug}
                 title={title}
