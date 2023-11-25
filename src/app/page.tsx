@@ -7,16 +7,24 @@ import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import Content from "./components/Content";
 import ArticleGrid from "./components/ArticleGrid";
+import { useEffect, useState } from "react";
 
 function HomePage() {
+  const [articles, setArticles] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/api/articles")
+      .then((response) => response.json())
+      .then((data) => setArticles(data));
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
         <Navbar />
         <Main>
           <Content>
-            <ArticleGrid title={"Featured Articles"} />
-            <ArticleGrid title={"Newest Articles"} />
+            {articles.length > 0 && (
+              <ArticleGrid title={"All Articles"} articles={articles} />
+            )}
           </Content>
         </Main>
       </AppContainer>

@@ -8,31 +8,38 @@ const ArticleContainer = styled.div`
   max-width: 600px;
 `;
 
-function Article() {
+interface Article {
+  title: string;
+  author: string;
+  authorImage: {
+    url: string;
+  };
+  articleImage: {
+    url: string;
+  };
+}
+
+interface ArticleProps {
+  article: Article;
+}
+
+function Article({ article }: ArticleProps) {
   return (
     <ArticleContainer>
-      <Text size="h1">Creating a component in React</Text>
+      <Text size="h1">{article.title}</Text>
 
       <Stack direction="row" gap={"10px"} style={{ margin: "20px 0" }}>
-        <Avatar
-          size={"35px"}
-          imageUrl={
-            "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
-          }
-        />
+        <Avatar size={"35px"} imageUrl={article.authorImage.url} />
         <Stack direction="column" gap={"5px"}>
           <Text bold size={"sm"}>
-            {"Example Name"}
+            {article.author}
           </Text>
           <Text size={"sm"} color={"secondary"}>
             {"22.11.2023"} - {"4"} min read
           </Text>
         </Stack>
       </Stack>
-      <PreviewImage
-        imageUrl="https://blog.openreplay.com/images/creating-a-collapsible-component-for-react/images/hero.png"
-        height="300px"
-      />
+      <PreviewImage imageUrl={article.articleImage.url} height="300px" />
       <p>
         Some description about the article in which we create a component in
         React. Here is some more description to see how this will change the

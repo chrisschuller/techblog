@@ -3,11 +3,25 @@ import Grid from "./Grid";
 import Link from "./Link";
 import Text from "./Text";
 
-interface ArticleGridProps {
+interface Article {
+  slug: string;
   title: string;
+  description: string;
+  articleImage: {
+    url: string;
+  };
+  author: string;
+  authorImage: {
+    url: string;
+  };
 }
 
-function ArticleGrid({ title }: ArticleGridProps) {
+interface ArticleGridProps {
+  title: string;
+  articles: Article[];
+}
+
+function ArticleGrid({ title, articles }: ArticleGridProps) {
   return (
     <Grid
       xs={{ cols: 1 }}
@@ -28,68 +42,24 @@ function ArticleGrid({ title }: ArticleGridProps) {
       >
         <Text size="h1">{title}</Text>
       </Grid.Item>
-      <Link href={"/articles"}>
-        <ArticleCard
-          id={"1"}
-          title={"Creating a component in React"}
-          description="Some description about the article in which we create a component in React. Here is some more description to see how this will change the layout."
-          imageUrl={"https://"}
-          author={"Christian Schuller"}
-          authorImageUrl={"https://"}
-          date={"22.11.2023"}
-          readTime={5}
-        />
-      </Link>
-      <ArticleCard
-        id={"1"}
-        title={"Creating a component in React"}
-        description="Some description about the article in which we create a component in React."
-        imageUrl={"https://"}
-        author={"Christian Schuller"}
-        authorImageUrl={"https://"}
-        date={"22.11.2023"}
-        readTime={5}
-      />
-      <ArticleCard
-        id={"1"}
-        title={"Creating a component in React"}
-        description="Some description about the article in which we create a component in React."
-        imageUrl={"https://"}
-        author={"Christian Schuller"}
-        authorImageUrl={"https://"}
-        date={"22.11.2023"}
-        readTime={5}
-      />
-      <ArticleCard
-        id={"1"}
-        title={"Creating a component in React"}
-        description="Some description about the article in which we create a component in React."
-        imageUrl={"https://"}
-        author={"Christian Schuller"}
-        authorImageUrl={"https://"}
-        date={"22.11.2023"}
-        readTime={5}
-      />
-      <ArticleCard
-        id={"1"}
-        title={"Creating a component in React"}
-        description="Some description about the article in which we create a component in React."
-        imageUrl={"https://"}
-        author={"Christian Schuller"}
-        authorImageUrl={"https://"}
-        date={"22.11.2023"}
-        readTime={5}
-      />
-      <ArticleCard
-        id={"1"}
-        title={"Creating a component in React"}
-        description="Some description about the article in which we create a component in React."
-        imageUrl={"https://"}
-        author={"Christian Schuller"}
-        authorImageUrl={"https://"}
-        date={"22.11.2023"}
-        readTime={5}
-      />
+      {articles.map(
+        ({ slug, title, description, articleImage, author, authorImage }) => {
+          return (
+            <Link href={`/articles/${slug}`}>
+              <ArticleCard
+                id={slug}
+                title={title}
+                description={description}
+                imageUrl={articleImage.url}
+                author={author}
+                authorImageUrl={authorImage.url}
+                date={"22.11.2023"}
+                readTime={5}
+              />
+            </Link>
+          );
+        }
+      )}
     </Grid>
   );
 }

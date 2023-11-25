@@ -28,7 +28,6 @@ const ArticleCardContainer = styled(Stack)`
 `;
 
 function ArticleCard({
-  id,
   title,
   description,
   imageUrl,
@@ -44,22 +43,17 @@ function ArticleCard({
       align={"start"}
     >
       <div>
-        <PreviewImage imageUrl="https://blog.openreplay.com/images/creating-a-collapsible-component-for-react/images/hero.png" />
+        <PreviewImage imageUrl={imageUrl} />
         <Text size={"h4"} bold>
           {title}
         </Text>
         <Text style={{ display: "block" }}>{description}</Text>
       </div>
       <Stack direction="row" gap={"10px"} style={{ margin: "20px 0" }}>
-        <Avatar
-          size={"35px"}
-          imageUrl={
-            "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
-          }
-        />
+        <Avatar size={"35px"} imageUrl={authorImageUrl} />
         <Stack direction="column" gap={"5px"}>
           <Text bold size={"sm"}>
-            {"Example Name"}
+            {author}
           </Text>
           <Text size={"sm"} color={"secondary"}>
             {"22.11.2023"} - {"4"} min read
