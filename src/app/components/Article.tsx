@@ -4,6 +4,8 @@ import PreviewImage from "./PreviewImage";
 import Stack from "./Stack";
 import Avatar from "./Avatar";
 import { convertToGermanDateFormat } from "./utils";
+import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const ArticleContainer = styled.div`
   max-width: 600px;
@@ -21,17 +23,37 @@ interface Article {
   articleImage: {
     url: string;
   };
+  content: {
+    json: any;
+  };
 }
 
 interface ArticleProps {
   article: Article;
 }
 
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: (text: any) => <Text bold>{text}</Text>,
+  },
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node: any, children: any) => <p>{children}</p>,
+    [BLOCKS.HEADING_2]: (node: any, children: any) => (
+      <Text size="h2">{children}</Text>
+    ),
+    [BLOCKS.HEADING_3]: (node: any, children: any) => (
+      <Text size="h3">{children}</Text>
+    ),
+    [BLOCKS.HEADING_4]: (node: any, children: any) => (
+      <Text size="h4">{children}</Text>
+    ),
+  },
+};
+
 function Article({ article }: ArticleProps) {
   return (
     <ArticleContainer>
       <Text size="h1">{article.title}</Text>
-
       <Stack direction="row" gap={"10px"} style={{ margin: "20px 0" }}>
         <Avatar size={"35px"} imageUrl={article.authorImage.url} />
         <Stack direction="column" gap={"5px"}>
@@ -45,48 +67,9 @@ function Article({ article }: ArticleProps) {
         </Stack>
       </Stack>
       <PreviewImage imageUrl={article.articleImage.url} height="300px" />
-      <p>
-        Some description about the article in which we create a component in
-        React. Here is some more description to see how this will change the
-        layout.
-      </p>
-      <p>
-        Some description about the article in which we create a component in
-        React. Here is some more description to see how this will change the
-        layout. Some more text so that the sizes dont repeat.
-      </p>
-      <p>
-        Some description about the article in which we create a component in
-        React. Here is some more description to see how this will change the
-        layout.
-      </p>
 
-      <Text size="h2">Prerequisites:</Text>
-      <ul>
-        <li>Something</li>
-        <li>Something else</li>
-        <li>React</li>
-        <li>Javascript</li>
-      </ul>
-
-      <p>
-        Some description about the article in which we create a component in
-        React. Here is some more description to see how this will change the
-        layout. Some description about the article in which we create a
-        component in React. Here is some more description to see how this will
-        change the layout. Some description about the article in which we create
-        a component in React. Here is some more description to see how this will
-        change the layout.
-      </p>
-
-      <Text size="h2">Thank you!</Text>
-      <p>
-        Some description about the article in which we create a component in
-        React. Here is some more description to see how this will change the
-        layout. Some description about the article in which we create a
-        component in React. Here is some more description to see how this will
-        change the layout. Good bye!
-      </p>
+      {/* Render the content using the contentful rich text library */}
+      {documentToReactComponents(article.content.json, options)}
     </ArticleContainer>
   );
 }
