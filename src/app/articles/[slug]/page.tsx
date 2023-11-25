@@ -12,10 +12,10 @@ import { useEffect, useState } from "react";
 function ArticlePage({ params }: { params: { slug: string } }) {
   const [article, setArticle] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:3000/api/articles/${params.slug}`)
+    fetch(`/api/articles/${params.slug}`)
       .then((response) => response.json())
       .then((data) => setArticle(data));
-  }, []);
+  }, [params.slug]);
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>

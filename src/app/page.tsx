@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 function HomePage() {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/api/articles")
+    fetch("/api/articles")
       .then((response) => response.json())
       .then((data) => setArticles(data));
   }, []);
