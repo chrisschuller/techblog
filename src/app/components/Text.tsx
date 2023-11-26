@@ -18,15 +18,18 @@ const TextContainer = styled.span<TextProps>`
   ${({ bold }) => bold && `font-weight: bold;`}
   ${({ italic }) => italic && `font-style: italic;`}
   ${({ underlined }) => underlined && `text-decoration: underline;`}
-  ${({ color, theme }) => color && `color: ${theme.text[color].color};`}
+  ${({ color, theme }) =>
+    color &&
+    `color: ${theme.text[color].color}; text-decoration-color: ${theme.text[color].color};`}
   ${({ ellipsis }) =>
     ellipsis &&
     `text-overflow: ellipsis; overflow: hidden; white-space: nowrap;`}
 `;
 
-function Text({
+export function Text({
   children,
   size = "md",
+  as,
   ...rest
 }: PropsWithChildren<TextProps>) {
   return (
@@ -35,6 +38,8 @@ function Text({
       as={
         size === "h1" || size === "h2" || size === "h3" || size === "h4"
           ? size
+          : as
+          ? as
           : undefined
       }
       size={size}
@@ -44,4 +49,15 @@ function Text({
   );
 }
 
-export default Text;
+export function Paragraph({
+  children,
+  size = "md",
+  as,
+  ...rest
+}: PropsWithChildren<TextProps>) {
+  return (
+    <TextContainer {...rest} as={"p"} size={size}>
+      {children}
+    </TextContainer>
+  );
+}

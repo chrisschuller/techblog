@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
-import Text from "./Text";
+import { Text } from "./Text";
 import PreviewImage from "./PreviewImage";
 import Stack from "./Stack";
 import Avatar from "./Avatar";
-import { convertToGermanDateFormat } from "./utils";
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import {
+  convertToGermanDateFormat,
+  createRichtextToReactOptions,
+} from "./Utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const ArticleContainer = styled.div`
@@ -25,32 +27,18 @@ interface Article {
   };
   content: {
     json: any;
+    links: any;
   };
+  estimatedReadTimeMinutes: number;
 }
 
 interface ArticleProps {
   article: Article;
 }
 
-const options = {
-  renderMark: {
-    [MARKS.BOLD]: (text: any) => <Text bold>{text}</Text>,
-  },
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node: any, children: any) => <p>{children}</p>,
-    [BLOCKS.HEADING_2]: (node: any, children: any) => (
-      <Text size="h2">{children}</Text>
-    ),
-    [BLOCKS.HEADING_3]: (node: any, children: any) => (
-      <Text size="h3">{children}</Text>
-    ),
-    [BLOCKS.HEADING_4]: (node: any, children: any) => (
-      <Text size="h4">{children}</Text>
-    ),
-  },
-};
-
 function Article({ article }: ArticleProps) {
+  const renderOptions = createRichtextToReactOptions(article);
+
   return (
     <ArticleContainer>
       <Text size="h1">{article.title}</Text>
@@ -61,15 +49,14 @@ function Article({ article }: ArticleProps) {
             {article.author}
           </Text>
           <Text size={"sm"} color={"secondary"}>
-            {convertToGermanDateFormat(article.sys.publishedAt)} - {"5"} min
-            read
+            {convertToGermanDateFormat(article.sys.publishedAt)} -{" "}
+            {article.estimatedReadTimeMinutes} min read
           </Text>
         </Stack>
       </Stack>
       <PreviewImage imageUrl={article.articleImage.url} height="300px" />
-
       {/* Render the content using the contentful rich text library */}
-      {documentToReactComponents(article.content.json, options)}
+      {documentToReactComponents(article.content.json, renderOptions)}
     </ArticleContainer>
   );
 }

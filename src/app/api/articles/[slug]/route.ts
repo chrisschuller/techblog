@@ -6,9 +6,9 @@ export async function GET(
 ) {
   const slug = params.slug;
   const query = `query($preview: Boolean) {
-    articleCollection(where: { slug: "${slug}" }, preview: $preview) {
+    articleCollection(where: { slug: "${slug}" }, preview: $preview, limit: 1) {
       items {
-        sys{
+        sys {
           publishedAt
         }
         title
@@ -22,7 +22,13 @@ export async function GET(
         }
         content {
           json
-        }
+          links {
+            assets {
+              block{sys{id},url, title}
+            }
+          }
+        },
+        estimatedReadTimeMinutes,
         recommendedArticlesCollection {
           items {
             title
@@ -31,7 +37,7 @@ export async function GET(
       }
     }
   }
-  `;
+    `;
   const res = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/aa2x2q37oe7p/environments/master`,
     {

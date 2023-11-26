@@ -13,6 +13,7 @@ query($preview: Boolean) {
       authorImage{
         url
       },
+      estimatedReadTimeMinutes
     }
   }
 }
@@ -39,7 +40,6 @@ export async function GET() {
 
   const response = await res.json();
   const data = response.data.articleCollection.items;
-  console.log(data);
 
   return Response.json(data);
 }

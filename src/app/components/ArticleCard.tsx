@@ -1,10 +1,9 @@
-import { PropsWithChildren } from "react";
 import styled from "@emotion/styled";
 import Stack from "./Stack";
-import Text from "./Text";
+import { Text } from "./Text";
 import PreviewImage from "./PreviewImage";
 import Avatar from "./Avatar";
-import { convertToGermanDateFormat } from "./utils";
+import { convertToGermanDateFormat } from "./Utils";
 
 interface ArticleCardProps {
   id: string;

@@ -1,7 +1,7 @@
 import ArticleCard from "./ArticleCard";
 import Grid from "./Grid";
 import Link from "./Link";
-import Text from "./Text";
+import { Text } from "./Text";
 
 interface Article {
   sys: {
@@ -17,6 +17,7 @@ interface Article {
   authorImage: {
     url: string;
   };
+  estimatedReadTimeMinutes: number;
 }
 
 interface ArticleGridProps {
@@ -54,6 +55,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
           author,
           authorImage,
           sys,
+          estimatedReadTimeMinutes,
         }) => {
           return (
             <Link href={`/articles/${slug}`} key={slug}>
@@ -65,7 +67,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
                 author={author}
                 authorImageUrl={authorImage.url}
                 date={sys.publishedAt}
-                readTime={5}
+                readTime={estimatedReadTimeMinutes}
               />
             </Link>
           );
