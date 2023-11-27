@@ -1,5 +1,6 @@
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 import { Paragraph, Text } from "./Text";
+import Stack from "./Stack";
 
 export function convertToGermanDateFormat(isoDateString: string): string {
   // Parse the ISO date string
@@ -41,7 +42,15 @@ export function createRichtextToReactOptions(article: any) {
         );
         const assetUrl = assetBlock?.url;
         const title = assetBlock?.title;
-        return <img src={assetUrl} alt={title} style={{ width: "100%" }} />;
+        return (
+          <Stack
+            direction={"column"}
+            align="center"
+            style={{ margin: "30px 0" }}
+          >
+            <img src={assetUrl} alt={title} style={{ width: "80%" }} />
+          </Stack>
+        );
       },
       [INLINES.HYPERLINK]: (node: any, children: any) => {
         return (
