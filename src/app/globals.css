@@ -2,16 +2,20 @@
   box-sizing: border-box;
 }
 
-html, body{
-  margin: 0;
-  height: 100%;
-  line-height: 1.5;
-}
-
 #root{
   height: 100%;
 }
 
+html, body{
+  margin: 0;
+  height: 100%;
+}
+
+
 body{
   font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+p{
+  line-height: 1.5;
 }

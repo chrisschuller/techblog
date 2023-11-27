@@ -43,7 +43,7 @@ function Article({ article }: ArticleProps) {
     <ArticleContainer>
       <Text size="h1">{article.title}</Text>
       <Stack direction="row" gap={"10px"} style={{ margin: "20px 0" }}>
-        <Avatar size={"35px"} imageUrl={article.authorImage.url} />
+        <Avatar size={"38px"} imageUrl={article.authorImage.url} />
         <Stack direction="column" gap={"5px"}>
           <Text bold size={"sm"}>
             {article.author}
