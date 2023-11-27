@@ -1,7 +1,7 @@
 "use client";
 
 import { ThemeProvider } from "@emotion/react";
-import { theme } from "./theme";
+import { darkTheme, lightTheme } from "./theme";
 import AppContainer from "./components/AppContainer";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
@@ -17,18 +17,11 @@ function HomePage() {
       .then((data) => setArticles(data));
   }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <AppContainer>
-        <Navbar />
-        <Main>
-          <Content>
-            {articles.length > 0 && (
-              <ArticleGrid title={"All Articles"} articles={articles} />
-            )}
-          </Content>
-        </Main>
-      </AppContainer>
-    </ThemeProvider>
+    <>
+      {articles.length > 0 && (
+        <ArticleGrid title={"All Articles"} articles={articles} />
+      )}
+    </>
   );
 }
 

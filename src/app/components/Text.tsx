@@ -20,7 +20,7 @@ const TextContainer = styled.span<TextProps>`
   ${({ underlined }) => underlined && `text-decoration: underline;`}
   ${({ color, theme }) =>
     color &&
-    `color: ${theme.text[color].color}; text-decoration-color: ${theme.text[color].color};`}
+    `color: ${theme.text[color].textColor}; text-decoration-color: ${theme.text[color].textColor};`}
   ${({ ellipsis }) =>
     ellipsis &&
     `text-overflow: ellipsis; overflow: hidden; white-space: nowrap;`}

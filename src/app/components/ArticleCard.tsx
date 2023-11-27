@@ -17,13 +17,18 @@ interface ArticleCardProps {
 }
 
 const ArticleCardContainer = styled(Stack)`
-  background-color: ${({ theme }) => theme.colors.lightBlack};
+  background-color: ${({ theme }) => theme.articleCard.backgroundColor};
+  color: ${({ theme }) => theme.articleCard.textColor};
   border-radius: 10px;
   padding: 15px;
   text-align: left;
   max-width: 300px;
   :hover {
-    background-color: ${({ theme }) => theme.colors.darkBlue};
+    background-color: ${({ theme }) => theme.articleCard.backgroundColorHover};
+    color: ${({ theme }) => theme.articleCard.textColorHover};
+  }
+  @media (min-width: 600px) {
+    height: 100%;
   }
 `;
 

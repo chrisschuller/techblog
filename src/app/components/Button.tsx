@@ -21,41 +21,41 @@ const ButtonContainer = styled.button<ButtonProps>`
   ${({ variant, outlined, theme }) =>
     variant &&
     !outlined &&
-    `background-color: ${theme.buttons[variant].color}; color: ${theme.buttons[variant].textColor};`}
+    `background-color: ${theme.buttons[variant].backgroundColor}; color: ${theme.buttons[variant].textColor};`}
   ${({ variant, outlined, theme }) =>
     !variant &&
     !outlined &&
-    `background-color: ${theme.buttons["primary"].color}; color: ${theme.buttons["primary"].textColor};`}
+    `background-color: ${theme.buttons["primary"].backgroundColor}; color: ${theme.buttons["primary"].textColor};`}
   
   ${({ variant, outlined, theme }) =>
     variant &&
     outlined &&
-    `background-color: transparent; box-shadow: inset 0 0 0 1px ${theme.buttons[variant].color}; color: ${theme.buttons[variant].color};`}
+    `background-color: transparent; box-shadow: inset 0 0 0 1px ${theme.buttons[variant].backgroundColor}; color: ${theme.buttons[variant].backgroundColor};`}
   
   ${({ variant, outlined, theme }) =>
     !variant &&
     outlined &&
-    `background-color: transparent; box-shadow: inset 0 0 0 1px ${theme.buttons["primary"].color}; color: ${theme.buttons["primary"].color};`}
+    `background-color: transparent; box-shadow: inset 0 0 0 1px ${theme.buttons["primary"].backgroundColor}; color: ${theme.buttons["primary"].backgroundColor};`}
   
   :hover {
     ${({ variant, outlined, theme }) =>
       variant &&
       !outlined &&
-      `background-color: ${theme.buttons[variant].hoverColor}; color: ${theme.buttons[variant].textColor};`}
+      `background-color: ${theme.buttons[variant].backgroundColorHover}; color: ${theme.buttons[variant].textColor};`}
     ${({ variant, outlined, theme }) =>
       !variant &&
       !outlined &&
-      `background-color: ${theme.buttons["primary"].hoverColor}; color: ${theme.buttons["primary"].textColor};`}
+      `background-color: ${theme.buttons["primary"].backgroundColorHover}; color: ${theme.buttons["primary"].textColor};`}
   
   ${({ variant, outlined, theme }) =>
       variant &&
       outlined &&
-      `background-color: transparent; box-shadow: inset 0 0 0 1px ${theme.buttons[variant].hoverColor}; color: ${theme.buttons[variant].hoverColor};`}
+      `background-color: transparent; box-shadow: inset 0 0 0 1px ${theme.buttons[variant].backgroundColorHover}; color: ${theme.buttons[variant].backgroundColorHover};`}
   
   ${({ variant, outlined, theme }) =>
       !variant &&
       outlined &&
-      `background-color: transparent; box-shadow: inset 0 0 0 1px ${theme.buttons["primary"].hoverColor}; color: ${theme.buttons["primary"].hoverColor};`}
+      `background-color: transparent; box-shadow: inset 0 0 0 1px ${theme.buttons["primary"].backgroundColorHover}; color: ${theme.buttons["primary"].backgroundColorHover};`}
   }
 `;
 
