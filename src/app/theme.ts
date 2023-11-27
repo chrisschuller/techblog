@@ -139,7 +139,7 @@ export const lightTheme = {
     h3: "21px",
     h4: "18px",
     lg: "20px",
-    md: "14px",
+    md: "15px",
     sm: "12px",
   },
 };
