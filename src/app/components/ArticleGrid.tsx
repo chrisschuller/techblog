@@ -58,7 +58,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
           estimatedReadTimeMinutes,
         }) => {
           return (
-            <Link href={`/articles/${slug}`} key={slug}>
+            <Link href={`/articles/${slug}`} key={slug} prefetch={false}>
               <ArticleCard
                 id={slug}
                 title={title}
