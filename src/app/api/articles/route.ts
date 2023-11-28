@@ -5,6 +5,7 @@ query($preview: Boolean) {
       sys{
         publishedAt
       }
+      category,
       slug,
       title,
       description,

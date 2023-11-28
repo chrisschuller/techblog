@@ -34,6 +34,7 @@ export async function GET(
             sys {
               publishedAt
             }
+            category
             slug
             title
             description

@@ -1,5 +1,5 @@
 "use client";
-import Article from "../../components/Article";
+import Article from "../../../components/Article";
 import { useEffect, useState } from "react";
 
 function ArticlePage({ params }: { params: { slug: string } }) {

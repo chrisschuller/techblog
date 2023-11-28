@@ -9,6 +9,7 @@ import {
 } from "./Utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import ArticleGrid from "./ArticleGrid";
+import { Category } from "../contexts/ThemeSwitcher";
 
 const ArticleContainer = styled.div`
   max-width: 600px;
@@ -36,6 +37,7 @@ interface Article {
       sys: {
         publishedAt: string;
       };
+      category: Category;
       slug: string;
       title: string;
       description: string;

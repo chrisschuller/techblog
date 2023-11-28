@@ -12,7 +12,7 @@ export const NavbarContainer = styled(Stack)`
 `;
 
 export function Navbar() {
-  const { theme, toggleTheme } = useContext(ThemeSwitcherContext);
+  const { theme, toggleDarkMode } = useContext(ThemeSwitcherContext);
 
   return (
     <NavbarContainer
@@ -23,20 +23,27 @@ export function Navbar() {
     >
       <Stack justify="center" align="center">
         <Link href={"/"}>
-          <Text size="lg">reactor.</Text>
+          <Text size="lg">bloggy.</Text>
           <Text size="lg" color={"primary"}>
-            dev
+            {theme.colorScheme === "base"
+              ? "me"
+              : theme.colorScheme === "technology"
+              ? "dev"
+              : theme.colorScheme === "food"
+              ? "food"
+              : theme.colorScheme === "travel"
+              ? "travel"
+              : "undefined"}
           </Text>
         </Link>
       </Stack>
       <Stack gap={"7px"} justify="center" align="center">
         <Button>Login</Button>
         <Button outlined>Sign Up</Button>
-        <Button variant={"secondary"} onClick={toggleTheme} outlined>
+        <Button variant={"secondary"} onClick={toggleDarkMode} outlined>
           <Stack justify="center" align="center">
-            {theme === "dark" && (
+            {!theme.darkMode && (
               <svg
-                enable-background="new 0 0 512 512"
                 height="18px"
                 id="Layer_1"
                 version="1.1"
@@ -54,7 +61,7 @@ export function Navbar() {
                 </g>
               </svg>
             )}
-            {theme === "light" && (
+            {theme.darkMode && (
               <svg
                 height="18px"
                 viewBox="0 0 512 512"

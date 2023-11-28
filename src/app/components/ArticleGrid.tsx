@@ -7,6 +7,7 @@ interface Article {
   sys: {
     publishedAt: string;
   };
+  category: string;
   slug: string;
   title: string;
   description: string;
@@ -48,6 +49,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
       </Grid.Item>
       {articles.map(
         ({
+          category,
           slug,
           title,
           description,
@@ -58,7 +60,11 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
           estimatedReadTimeMinutes,
         }) => {
           return (
-            <Link href={`/articles/${slug}`} key={slug} prefetch={false}>
+            <Link
+              href={`/articles/${category}/${slug}`}
+              key={slug}
+              prefetch={false}
+            >
               <ArticleCard
                 id={slug}
                 title={title}
