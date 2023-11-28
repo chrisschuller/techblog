@@ -28,7 +28,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <title>Reactor.dev</title>
+      <title>bloggyyy.me</title>
       <body>
         <ThemeSwitcher.Provider
           value={{ theme, toggleDarkMode, toggleColorScheme }}
