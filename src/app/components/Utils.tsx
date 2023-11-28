@@ -19,6 +19,11 @@ export function createRichtextToReactOptions(article: any) {
     preserveWhitespace: true,
     renderMark: {
       [MARKS.BOLD]: (text: any) => <Text bold>{text}</Text>,
+      [MARKS.CODE]: (text: any) => (
+        <pre>
+          <code>{text}</code>
+        </pre>
+      ),
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
