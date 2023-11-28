@@ -53,7 +53,7 @@ export function createRichtextToReactOptions(article: any) {
             align="center"
             style={{ margin: "30px 0" }}
           >
-            <img src={assetUrl} alt={title} style={{ width: "80%" }} />
+            <img src={assetUrl} alt={title} style={{ width: "90%" }} />
           </Stack>
         );
       },
