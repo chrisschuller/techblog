@@ -35,7 +35,7 @@ export default function RootLayout({
         >
           <ThemeProvider
             theme={
-              appTheme[theme.colorScheme][theme.darkMode ? "light" : "dark"]
+              appTheme[theme.colorScheme][theme.darkMode ? "dark" : "light"]
             }
           >
             <AppContainer>

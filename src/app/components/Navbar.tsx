@@ -42,7 +42,7 @@ export function Navbar() {
         <Button outlined>Sign Up</Button>
         <Button variant={"secondary"} onClick={toggleDarkMode} outlined>
           <Stack justify="center" align="center">
-            {!theme.darkMode && (
+            {theme.darkMode && (
               <svg
                 height="18px"
                 id="Layer_1"
@@ -61,7 +61,7 @@ export function Navbar() {
                 </g>
               </svg>
             )}
-            {theme.darkMode && (
+            {!theme.darkMode && (
               <svg
                 height="18px"
                 viewBox="0 0 512 512"
