@@ -31,7 +31,20 @@ export async function GET(
         estimatedReadTimeMinutes,
         recommendedArticlesCollection {
           items {
+            sys {
+              publishedAt
+            }
+            slug
             title
+            description
+            articleImage {
+              url
+            }
+            author
+            authorImage {
+              url
+            }
+            estimatedReadTimeMinutes
           }
         }
       }

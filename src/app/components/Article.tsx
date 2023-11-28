@@ -8,6 +8,7 @@ import {
   createRichtextToReactOptions,
 } from "./Utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import ArticleGrid from "./ArticleGrid";
 
 const ArticleContainer = styled.div`
   max-width: 600px;
@@ -30,6 +31,24 @@ interface Article {
     links: any;
   };
   estimatedReadTimeMinutes: number;
+  recommendedArticlesCollection: {
+    items: {
+      sys: {
+        publishedAt: string;
+      };
+      slug: string;
+      title: string;
+      description: string;
+      articleImage: {
+        url: string;
+      };
+      author: string;
+      authorImage: {
+        url: string;
+      };
+      estimatedReadTimeMinutes: number;
+    }[];
+  };
 }
 
 interface ArticleProps {
@@ -40,24 +59,32 @@ function Article({ article }: ArticleProps) {
   const renderOptions = createRichtextToReactOptions(article);
 
   return (
-    <ArticleContainer>
-      <Text size="h1">{article.title}</Text>
-      <Stack direction="row" gap={"10px"} style={{ margin: "20px 0" }}>
-        <Avatar size={"38px"} imageUrl={article.authorImage.url} />
-        <Stack direction="column" gap={"5px"}>
-          <Text bold size={"sm"}>
-            {article.author}
-          </Text>
-          <Text size={"sm"} color={"secondary"}>
-            {convertToGermanDateFormat(article.sys.publishedAt)} -{" "}
-            {article.estimatedReadTimeMinutes} min read
-          </Text>
+    <>
+      <ArticleContainer>
+        <Text size="h1">{article.title}</Text>
+        <Stack direction="row" gap={"10px"} style={{ margin: "20px 0" }}>
+          <Avatar size={"38px"} imageUrl={article.authorImage.url} />
+          <Stack direction="column" gap={"5px"}>
+            <Text bold size={"sm"}>
+              {article.author}
+            </Text>
+            <Text size={"sm"} color={"secondary"}>
+              {convertToGermanDateFormat(article.sys.publishedAt)} -{" "}
+              {article.estimatedReadTimeMinutes} min read
+            </Text>
+          </Stack>
         </Stack>
-      </Stack>
-      <PreviewImage imageUrl={article.articleImage.url} height="300px" />
-      {/* Render the content using the contentful rich text library */}
-      {documentToReactComponents(article.content.json, renderOptions)}
-    </ArticleContainer>
+        <PreviewImage imageUrl={article.articleImage.url} height="300px" />
+        {/* Render the content using the contentful rich text library */}
+        {documentToReactComponents(article.content.json, renderOptions)}
+      </ArticleContainer>
+      {article.recommendedArticlesCollection.items.length > 0 && (
+        <ArticleGrid
+          title={"Recommended Articles"}
+          articles={article.recommendedArticlesCollection.items}
+        ></ArticleGrid>
+      )}
+    </>
   );
 }
 
