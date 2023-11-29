@@ -21,33 +21,35 @@ function HomePage() {
   }, []);
   return (
     <>
-      <Stack
-        direction="row"
-        justify="flex-start"
-        align="center"
-        gap="10px"
-        style={{ width: "100%", padding: "15px" }}
-      >
-        <Text size="lg" bold>
-          Browse Categories
-        </Text>
-      </Stack>
-      <Stack
-        direction="row"
-        justify="flex-start"
-        align="center"
-        gap="10px"
-        style={{ width: "100%", padding: "15px" }}
-      >
-        <CategoryLink category="technology" href={"/articles/technology"}>
-          Technology
-        </CategoryLink>
-        <CategoryLink category="food" href={"/articles/food"}>
-          Food
-        </CategoryLink>
-      </Stack>
       {articles.length > 0 && (
-        <ArticleGrid title={"All Articles"} articles={articles} />
+        <>
+          <Stack
+            direction="row"
+            justify="flex-start"
+            align="center"
+            gap="10px"
+            style={{ width: "100%", padding: "15px" }}
+          >
+            <Text size="lg" bold>
+              Browse Categories
+            </Text>
+          </Stack>
+          <Stack
+            direction="row"
+            justify="flex-start"
+            align="center"
+            gap="10px"
+            style={{ width: "100%", padding: "15px" }}
+          >
+            <CategoryLink category="technology" href={"/articles/technology"}>
+              Technology
+            </CategoryLink>
+            <CategoryLink category="food" href={"/articles/food"}>
+              Food
+            </CategoryLink>
+          </Stack>
+          <ArticleGrid title={"All Articles"} articles={articles} />{" "}
+        </>
       )}
     </>
   );
