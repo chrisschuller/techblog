@@ -7,8 +7,10 @@ import { useContext } from "react";
 import ThemeSwitcherContext from "../contexts/ThemeSwitcher";
 
 export const NavbarContainer = styled(Stack)`
-  height: 8vh;
   background-color: ${({ theme }) => theme.navbar.backgroundColor};
+  padding: 15px;
+  gap: 15px;
+  flex-wrap: wrap;
 `;
 
 export function Navbar() {
@@ -37,7 +39,7 @@ export function Navbar() {
           </Text>
         </Link>
       </Stack>
-      <Stack gap={"7px"} justify="center" align="center">
+      <Stack direction="row" gap={"7px"} justify="center" align="center">
         <Button>Login</Button>
         <Button outlined>Sign Up</Button>
         <Button variant={"secondary"} onClick={toggleDarkMode} outlined>
