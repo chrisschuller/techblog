@@ -21,7 +21,7 @@ export function Navbar() {
       direction="row"
       justify="space-between"
       align={"center"}
-      style={{ padding: "20px" }}
+      style={{ padding: "15px" }}
     >
       <Stack justify="center" align="center">
         <Link href={"/"}>
@@ -39,18 +39,18 @@ export function Navbar() {
           </Text>
         </Link>
       </Stack>
-      <Stack direction="row" gap={"7px"} justify="center" align="center">
+      <Stack direction="row" gap={"7px"} justify="center" align="stretch">
         <Button>Login</Button>
         <Button outlined>Sign Up</Button>
         <Button variant={"secondary"} onClick={toggleDarkMode} outlined>
           <Stack justify="center" align="center">
             {theme.darkMode && (
               <svg
-                height="18px"
+                height="15px"
+                width="15px"
                 id="Layer_1"
                 version="1.1"
                 viewBox="0 0 512 512"
-                width="100%"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g>
