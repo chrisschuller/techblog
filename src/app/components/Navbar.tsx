@@ -25,17 +25,17 @@ export function Navbar() {
     >
       <Stack justify="center" align="center">
         <Link href={"/"}>
-          <Text size="lg">bloggy.</Text>
+          <Text size="lg">bloggy</Text>
           <Text size="lg" color={"primary"}>
             {theme.colorScheme === "base"
-              ? "me"
+              ? "/me"
               : theme.colorScheme === "technology"
-              ? "dev"
+              ? "/dev"
               : theme.colorScheme === "food"
-              ? "food"
+              ? "/food"
               : theme.colorScheme === "travel"
-              ? "travel"
-              : "undefined"}
+              ? "/travel"
+              : "/whatever"}
           </Text>
         </Link>
       </Stack>
