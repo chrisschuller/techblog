@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Stack from "./Stack";
 import { Text } from "./Text";
-import PreviewImage from "./PreviewImage";
+import Image from "next/image";
 import Avatar from "./Avatar";
 import { convertToGermanDateFormat } from "./Utils";
 
@@ -48,7 +48,16 @@ function ArticleCard({
       align={"start"}
     >
       <div>
-        <PreviewImage imageUrl={imageUrl} />
+        <div style={{ position: "relative", height: "200px" }}>
+          <Image
+            src={imageUrl}
+            alt={"Article Preview image"}
+            fill
+            sizes="400px"
+            objectFit="cover"
+            objectPosition="center"
+          />
+        </div>
         <Text size={"h4"} bold>
           {title}
         </Text>

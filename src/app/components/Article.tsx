@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Text } from "./Text";
-import PreviewImage from "./PreviewImage";
+import Image from "next/image";
 import Stack from "./Stack";
 import Avatar from "./Avatar";
 import {
@@ -76,7 +76,16 @@ function Article({ article }: ArticleProps) {
             </Text>
           </Stack>
         </Stack>
-        <PreviewImage imageUrl={article.articleImage.url} height="300px" />
+        <div style={{ position: "relative", height: "300px" }}>
+          <Image
+            src={article.articleImage.url}
+            alt={"Article Preview image"}
+            fill
+            sizes="(max-width: 1200px) 800px, (max-width: 992px) 600px, (max-width: 768px) 400px, 80vw"
+            objectFit="cover"
+            objectPosition="center"
+          />
+        </div>
         {/* Render the content using the contentful rich text library */}
         {documentToReactComponents(article.content.json, renderOptions)}
       </ArticleContainer>
