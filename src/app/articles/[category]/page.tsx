@@ -15,6 +15,10 @@ function CategoryPage({ params }: { params: { category: Category } }) {
       .then((data) => setArticles(data));
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   const { toggleColorScheme } = useContext(ThemeSwitcherContext);
   useEffect(() => {
     toggleColorScheme(params.category);
