@@ -9,7 +9,6 @@ import Content from "./components/Content";
 import appTheme from "./theme";
 import { useState } from "react";
 import ThemeSwitcher, { Category } from "./contexts/ThemeSwitcher";
-import { AnimatePresence, motion } from "framer-motion";
 
 export default function RootLayout({
   children,
