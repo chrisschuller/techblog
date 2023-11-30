@@ -15,7 +15,7 @@ function CategoryPage({ params }: { params: { category: Category } }) {
 
   const { toggleColorScheme } = useContext(ThemeSwitcherContext);
   useEffect(() => {
-    toggleColorScheme("base");
+    toggleColorScheme(params.category);
   }, []);
   return (
     <>
