@@ -17,7 +17,7 @@ function CategoryPage({ params }: { params: { category: Category } }) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   const { toggleColorScheme } = useContext(ThemeSwitcherContext);
   useEffect(() => {
