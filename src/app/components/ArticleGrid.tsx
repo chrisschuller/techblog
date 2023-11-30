@@ -64,6 +64,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
               href={`/articles/${category}/${slug}`}
               key={slug}
               prefetch={false}
+              scroll={true}
             >
               <ArticleCard
                 id={slug}
