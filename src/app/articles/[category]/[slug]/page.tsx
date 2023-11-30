@@ -16,6 +16,11 @@ function ArticlePage({
       .then((response) => response.json())
       .then((data) => setArticle(data));
   }, [params.slug]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <AnimatePresence>
       {article && (
