@@ -28,7 +28,11 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <title>bloggyyy.me</title>
+      <head>
+        <title>Bloggy</title>
+        <meta name="description" content="A blog about tech, food and travel" />
+      </head>
+
       <body>
         <ThemeSwitcher.Provider
           value={{ theme, toggleDarkMode, toggleColorScheme }}
