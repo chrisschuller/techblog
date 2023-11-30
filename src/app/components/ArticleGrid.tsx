@@ -36,7 +36,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
       gap={"10px"}
       style={{
         padding: "10px",
-        marginTop: "30px",
+        marginTop: "10px",
       }}
     >
       <Grid.Item

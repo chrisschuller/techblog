@@ -28,7 +28,7 @@ export function Navbar() {
           <Text size="lg">bloggy</Text>
           <Text size="lg" color={"primary"}>
             {theme.colorScheme === "base"
-              ? "/me"
+              ? "/all"
               : theme.colorScheme === "technology"
               ? "/dev"
               : theme.colorScheme === "food"

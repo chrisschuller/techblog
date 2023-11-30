@@ -1,8 +1,8 @@
 const colors = {
   base: {
-    primary: "#ca19e5",
-    primaryLight: "#dd46f4",
-    primaryDark: "#980fad",
+    primary: "#8d8d8d",
+    primaryLight: "#969696",
+    primaryDark: "#595959",
     secondary: "#A3A3A3",
     secondaryLight: "#BEBEBE",
     secondaryDark: "#828282",
