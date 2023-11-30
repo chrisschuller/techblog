@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import Content from "./components/Content";
 import appTheme from "./theme";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ThemeSwitcher, { Category } from "./contexts/ThemeSwitcher";
 
 export default function RootLayout({

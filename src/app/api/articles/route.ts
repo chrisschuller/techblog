@@ -26,6 +26,7 @@ export async function GET() {
   const res = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/aa2x2q37oe7p/environments/master`,
     {
+      next: { revalidate: 300 },
       method: "POST",
       headers: {
         "Content-Type": "application/json",
