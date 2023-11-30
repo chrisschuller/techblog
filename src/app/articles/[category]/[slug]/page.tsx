@@ -1,7 +1,7 @@
 "use client";
-import { Category } from "@/app/contexts/ThemeSwitcher";
+import ThemeSwitcherContext, { Category } from "@/app/contexts/ThemeSwitcher";
 import Article from "../../../components/Article";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Stack from "@/app/components/Stack";
 
@@ -19,6 +19,11 @@ function ArticlePage({
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  const { toggleColorScheme } = useContext(ThemeSwitcherContext);
+  useEffect(() => {
+    toggleColorScheme(params.category);
   }, []);
 
   return (
