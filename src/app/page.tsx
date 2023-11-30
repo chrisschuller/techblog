@@ -6,6 +6,7 @@ import ThemeSwitcherContext from "./contexts/ThemeSwitcher";
 import Stack from "./components/Stack";
 import { Text } from "./components/Text";
 import CategoryLink from "./components/CategoryLink";
+import { AnimatePresence, motion } from "framer-motion";
 
 function HomePage() {
   const [articles, setArticles] = useState([]);
@@ -20,9 +21,14 @@ function HomePage() {
     toggleColorScheme("base");
   }, []);
   return (
-    <>
+    <AnimatePresence>
       {articles.length > 0 && (
-        <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }} // Set the duration of the fade here
+        >
           <Stack
             direction="row"
             justify="flex-start"
@@ -49,9 +55,9 @@ function HomePage() {
             </CategoryLink>
           </Stack>
           <ArticleGrid title={"All Articles"} articles={articles} />{" "}
-        </>
+        </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 }
 

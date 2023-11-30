@@ -39,21 +39,12 @@ export default function RootLayout({
               appTheme[theme.colorScheme][theme.darkMode ? "dark" : "light"]
             }
           >
-            <AnimatePresence>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }} // Set the duration of the fade here
-              >
-                <AppContainer>
-                  <Navbar />
-                  <Main>
-                    <Content>{children}</Content>
-                  </Main>
-                </AppContainer>
-              </motion.div>
-            </AnimatePresence>
+            <AppContainer>
+              <Navbar />
+              <Main>
+                <Content>{children}</Content>
+              </Main>
+            </AppContainer>
           </ThemeProvider>
         </ThemeSwitcher.Provider>
       </body>

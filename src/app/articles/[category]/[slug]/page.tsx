@@ -17,14 +17,16 @@ function ArticlePage({
   }, [params.slug]);
   return (
     <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }} // Set the duration of the fade here
-      >
-        {article && <Article article={article as any} />}
-      </motion.div>
+      {article && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }} // Set the duration of the fade here
+        >
+          <Article article={article as any} />
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }
