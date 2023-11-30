@@ -9,6 +9,7 @@ import Content from "./components/Content";
 import appTheme from "./theme";
 import { useState } from "react";
 import ThemeSwitcher, { Category } from "./contexts/ThemeSwitcher";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function RootLayout({
   children,
@@ -38,12 +39,21 @@ export default function RootLayout({
               appTheme[theme.colorScheme][theme.darkMode ? "dark" : "light"]
             }
           >
-            <AppContainer>
-              <Navbar />
-              <Main>
-                <Content>{children}</Content>
-              </Main>
-            </AppContainer>
+            <AnimatePresence>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }} // Set the duration of the fade here
+              >
+                <AppContainer>
+                  <Navbar />
+                  <Main>
+                    <Content>{children}</Content>
+                  </Main>
+                </AppContainer>
+              </motion.div>
+            </AnimatePresence>
           </ThemeProvider>
         </ThemeSwitcher.Provider>
       </body>
