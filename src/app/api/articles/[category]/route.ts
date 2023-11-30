@@ -7,7 +7,6 @@ export async function GET(
   { params }: { params: { category: Category } }
 ) {
   const category = params.category;
-  console.log(category);
 
   const query = `query($preview: Boolean) {
     articleCollection(where: {category: "${category}"}, limit: 10, preview: $preview) {
