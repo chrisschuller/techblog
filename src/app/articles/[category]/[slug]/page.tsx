@@ -3,6 +3,7 @@ import { Category } from "@/app/contexts/ThemeSwitcher";
 import Article from "../../../components/Article";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Stack from "@/app/components/Stack";
 
 function ArticlePage({
   params,
@@ -24,7 +25,9 @@ function ArticlePage({
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }} // Set the duration of the fade here
         >
-          <Article article={article as any} />
+          <Stack direction="column" justify="flex-start" align="center">
+            <Article article={article as any} />
+          </Stack>
         </motion.div>
       )}
     </AnimatePresence>
