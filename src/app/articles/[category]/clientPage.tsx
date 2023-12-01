@@ -10,6 +10,7 @@ function CategoryPageClient({
 }) {
   const { toggleColorScheme } = useContext(ThemeSwitcherContext);
   useEffect(() => {
+    console.log(params.category);
     toggleColorScheme(params.category);
   }, []);
   return <>{children}</>;

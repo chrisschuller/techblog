@@ -8,7 +8,7 @@ interface CategoryPageServerProps {
 
 async function CategoryPageServer({ category }: CategoryPageServerProps) {
   const articles = (await fetch(
-    `${process.env.HOST}/api/articles/${category}`
+    `${process.env.NEXT_PUBLIC_HOST}/api/articles/${category}`
   ).then((response) => response.json())) as Article[];
 
   return (
