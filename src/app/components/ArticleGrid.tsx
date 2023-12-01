@@ -3,7 +3,7 @@ import Grid from "./Grid";
 import Link from "./Link";
 import { Text } from "./Text";
 
-interface Article {
+export interface Article {
   sys: {
     publishedAt: string;
   };
