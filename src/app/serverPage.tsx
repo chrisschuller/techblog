@@ -1,7 +1,7 @@
 import ArticleGrid, { Article } from "./components/ArticleGrid";
 
 async function HomePageServer() {
-  const articles = (await fetch("http://localhost:3000/api/articles").then(
+  const articles = (await fetch(`${process.env.HOST}/api/articles`).then(
     (response) => response.json()
   )) as Article[];
 

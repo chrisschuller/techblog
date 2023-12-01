@@ -8,7 +8,7 @@ interface ArticlePageServerProps {
 
 async function ArticlePageServer({ category, slug }: ArticlePageServerProps) {
   const article = (await fetch(
-    `http://localhost:3000/api/articles/${category}/${slug}`
+    `${process.env.HOST}/api/articles/${category}/${slug}`
   ).then((response) => response.json())) as Article;
 
   return <Article article={article} />;
