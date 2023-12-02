@@ -1,7 +1,7 @@
 "use client";
 
-import HomePageClient from "./clientPage";
-import HomePageServer from "./serverPage";
+import HomePageClient from "./page.client";
+import HomePageServer from "./page.server";
 
 function HomePage() {
   return (

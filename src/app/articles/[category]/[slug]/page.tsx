@@ -1,8 +1,8 @@
 "use client";
 
 import { Category } from "@/app/contexts/ThemeSwitcher";
-import ArticlePageClient from "./clientPage";
-import ArticlePageServer from "./serverPage";
+import ArticlePageClient from "./page.client";
+import ArticlePageServer from "./page.server";
 
 function ArticlePage({
   params,

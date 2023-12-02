@@ -1,8 +1,8 @@
 "use client";
 
 import { Category } from "@/app/contexts/ThemeSwitcher";
-import CategoryPageClient from "./clientPage";
-import CategoryPageServer from "./serverPage";
+import CategoryPageClient from "./page.client";
+import CategoryPageServer from "./page.server";
 
 function CategoryPage({ params }: { params: { category: Category } }) {
   return (
