@@ -60,7 +60,6 @@ function ArticleCard({
   return (
     <ArticleCardContainer
       href={`/articles/${category}/${slug}`}
-      key={slug}
       prefetch={false}
       scroll={true}
     >

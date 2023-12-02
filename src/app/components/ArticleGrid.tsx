@@ -62,6 +62,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
         }) => {
           return (
             <Stack
+              key={slug}
               direction="column"
               justify="flex-start"
               align="center"
