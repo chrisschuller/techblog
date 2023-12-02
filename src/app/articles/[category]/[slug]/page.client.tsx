@@ -20,11 +20,7 @@ function ArticlePageClient({
     toggleColorScheme(params.category);
   }, []);
 
-  return (
-    <Stack direction="column" justify="flex-start" align="center">
-      {children}
-    </Stack>
-  );
+  return <>{children}</>;
 }
 
 export default ArticlePageClient;

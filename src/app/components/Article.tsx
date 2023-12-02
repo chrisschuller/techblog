@@ -13,6 +13,7 @@ import { Category } from "../contexts/ThemeSwitcher";
 
 const ArticleContainer = styled.div`
   max-width: 600px;
+  margin-bottom: 20px;
 `;
 
 interface Article {

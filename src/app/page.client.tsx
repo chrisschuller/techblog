@@ -18,7 +18,10 @@ function HomePageClient({ children }: PropsWithChildren) {
         justify="flex-start"
         align="center"
         gap="10px"
-        style={{ width: "100%", padding: "15px" }}
+        style={{
+          width: "100%",
+          marginBottom: "20px",
+        }}
       >
         <Text size="lg" bold>
           Browse Categories
@@ -29,7 +32,10 @@ function HomePageClient({ children }: PropsWithChildren) {
         justify="flex-start"
         align="center"
         gap="10px"
-        style={{ width: "100%", padding: "15px" }}
+        style={{
+          width: "100%",
+          marginBottom: "20px",
+        }}
       >
         <CategoryLink category="technology" href={"/articles/technology"}>
           Technology

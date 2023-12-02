@@ -32,7 +32,6 @@ export default function RootLayout({
         <title>Bloggy</title>
         <meta name="description" content="A blog about tech, food and travel" />
       </head>
-
       <body>
         <ThemeSwitcher.Provider
           value={{ theme, toggleDarkMode, toggleColorScheme }}

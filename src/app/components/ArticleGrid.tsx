@@ -1,13 +1,15 @@
+import { Category } from "../contexts/ThemeSwitcher";
 import ArticleCard from "./ArticleCard";
 import Grid from "./Grid";
 import Link from "./Link";
+import Stack from "./Stack";
 import { Text } from "./Text";
 
 export interface Article {
   sys: {
     publishedAt: string;
   };
-  category: string;
+  category: Category;
   slug: string;
   title: string;
   description: string;
@@ -35,8 +37,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
       xl={{ cols: 3 }}
       gap={"10px"}
       style={{
-        padding: "10px",
-        marginTop: "10px",
+        width: "100%",
       }}
     >
       <Grid.Item
@@ -60,14 +61,16 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
           estimatedReadTimeMinutes,
         }) => {
           return (
-            <Link
-              href={`/articles/${category}/${slug}`}
-              key={slug}
-              prefetch={false}
-              scroll={true}
+            <Stack
+              direction="column"
+              justify="flex-start"
+              align="center"
+              style={{ height: "100%" }}
             >
               <ArticleCard
                 id={slug}
+                category={category}
+                slug={slug}
                 title={title}
                 description={description}
                 imageUrl={articleImage.url}
@@ -76,7 +79,7 @@ function ArticleGrid({ title, articles }: ArticleGridProps) {
                 date={sys.publishedAt}
                 readTime={estimatedReadTimeMinutes}
               />
-            </Link>
+            </Stack>
           );
         }
       )}
