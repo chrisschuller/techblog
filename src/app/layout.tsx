@@ -9,16 +9,23 @@ import Content from "./components/Content";
 import appTheme from "./theme";
 import { useState } from "react";
 import ThemeSwitcher, { Category } from "./contexts/ThemeSwitcher";
+import { useParams } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const params = useParams();
+  const existingCategory = params?.category as Category;
+
   const [theme, setTheme] = useState<{
     darkMode: boolean;
     colorScheme: Category;
-  }>({ darkMode: false, colorScheme: "base" });
+  }>({
+    darkMode: false,
+    colorScheme: existingCategory ? existingCategory : "base",
+  });
   const toggleDarkMode = () => {
     setTheme({ ...theme, darkMode: !theme.darkMode });
   };
