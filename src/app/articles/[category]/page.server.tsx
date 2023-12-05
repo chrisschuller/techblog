@@ -1,3 +1,4 @@
+"use server";
 import ArticleGrid, { Article } from "@/app/components/ArticleGrid";
 import { Category } from "@/app/contexts/ThemeSwitcher";
 import { capitalizeFirstLetter } from "@/app/helpers";

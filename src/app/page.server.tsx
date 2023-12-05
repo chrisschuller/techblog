@@ -1,3 +1,4 @@
+"use server";
 import ArticleGrid, { Article } from "./components/ArticleGrid";
 
 async function HomePageServer() {

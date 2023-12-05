@@ -1,5 +1,3 @@
-"use client";
-
 import HomePageClient from "./page.client";
 import HomePageServer from "./page.server";
 

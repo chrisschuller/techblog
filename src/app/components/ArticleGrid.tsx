@@ -1,3 +1,4 @@
+"use client";
 import { Category } from "../contexts/ThemeSwitcher";
 import ArticleCard from "./ArticleCard";
 import Grid from "./Grid";

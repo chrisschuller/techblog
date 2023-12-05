@@ -1,5 +1,3 @@
-"use client";
-
 import { Category } from "@/app/contexts/ThemeSwitcher";
 import ArticlePageClient from "./page.client";
 import ArticlePageServer from "./page.server";

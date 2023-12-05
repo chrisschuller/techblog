@@ -1,8 +1,6 @@
 "use client";
-
 import ThemeSwitcherContext, { Category } from "@/app/contexts/ThemeSwitcher";
 import { useContext, useEffect } from "react";
-import Stack from "@/app/components/Stack";
 
 function ArticlePageClient({
   params,

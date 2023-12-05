@@ -1,7 +1,6 @@
 "use client";
 
 import "./globals.css";
-import { ThemeProvider } from "@emotion/react";
 import AppContainer from "./components/AppContainer";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
@@ -10,6 +9,7 @@ import appTheme from "./theme";
 import { useState } from "react";
 import ThemeSwitcher, { Category } from "./contexts/ThemeSwitcher";
 import { useParams } from "next/navigation";
+import ThemeProvider from "./contexts/ThemeProvider";
 
 export default function RootLayout({
   children,

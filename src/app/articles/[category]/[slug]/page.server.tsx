@@ -1,3 +1,4 @@
+"use server";
 import Article from "@/app/components/Article";
 import { Category } from "@/app/contexts/ThemeSwitcher";
 
