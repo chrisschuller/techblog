@@ -5,11 +5,7 @@ import fetchContentfulData from "./shared/fetchContentfulData";
 
 async function fetchArticlePageData(slug: string) {
   const query = articlePageQuery(slug);
-
-  const res = await fetchContentfulData({
-    query,
-    revalidate: 60,
-  });
+  const res = await fetchContentfulData(query);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

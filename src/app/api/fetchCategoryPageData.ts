@@ -6,11 +6,7 @@ import fetchContentfulData from "./shared/fetchContentfulData";
 
 async function fetchCategoryPageData(category: Category) {
   const query = categoryPageQuery(category);
-
-  const res = await fetchContentfulData({
-    query,
-    revalidate: 60,
-  });
+  const res = await fetchContentfulData(query);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
