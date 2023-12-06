@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
 
-export type Category = "base" | "technology" | "food" | "travel";
+import React from "react";
+import Category from "../types/Category";
 
 const ThemeSwitcherContext = React.createContext<{
   theme: {

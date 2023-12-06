@@ -1,32 +1,14 @@
 "use client";
-import { Category } from "../contexts/ThemeSwitcher";
+
+import ArticlePreview from "../types/ArticlePreview";
 import ArticleCard from "./ArticleCard";
 import Grid from "./Grid";
-import Link from "./Link";
 import Stack from "./Stack";
 import { Text } from "./Text";
 
-export interface Article {
-  sys: {
-    publishedAt: string;
-  };
-  category: Category;
-  slug: string;
-  title: string;
-  description: string;
-  articleImage: {
-    url: string;
-  };
-  author: string;
-  authorImage: {
-    url: string;
-  };
-  estimatedReadTimeMinutes: number;
-}
-
 interface ArticleGridProps {
   title: string;
-  articles: Article[];
+  articles: ArticlePreview[];
 }
 
 function ArticleGrid({ title, articles }: ArticleGridProps) {

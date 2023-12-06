@@ -1,5 +1,5 @@
-import { Article } from "@/app/components/ArticleGrid";
 import "server-only";
+import Article from "../components/Article";
 
 const query = `
 query($preview: Boolean) {

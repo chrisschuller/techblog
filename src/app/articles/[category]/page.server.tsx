@@ -1,8 +1,9 @@
 "use server";
+
 import fetchCategoryPageData from "@/app/api/fetchCategoryPageData";
-import ArticleGrid, { Article } from "@/app/components/ArticleGrid";
-import { Category } from "@/app/contexts/ThemeSwitcher";
+import ArticleGrid from "@/app/components/ArticleGrid";
 import { capitalizeFirstLetter } from "@/app/helpers";
+import Category from "@/app/types/Category";
 
 interface CategoryPageServerProps {
   category: Category;

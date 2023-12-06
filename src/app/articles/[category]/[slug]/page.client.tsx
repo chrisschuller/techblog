@@ -1,5 +1,7 @@
 "use client";
-import ThemeSwitcherContext, { Category } from "@/app/contexts/ThemeSwitcher";
+
+import ThemeSwitcherContext from "@/app/contexts/ThemeSwitcher";
+import Category from "@/app/types/Category";
 import { useContext, useEffect } from "react";
 
 function ArticlePageClient({

@@ -10,50 +10,12 @@ import {
 } from "./Utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import ArticleGrid from "./ArticleGrid";
-import { Category } from "../contexts/ThemeSwitcher";
+import Article from "@/app/types/Article";
 
 const ArticleContainer = styled.div`
   max-width: 600px;
   margin-bottom: 20px;
 `;
-
-interface Article {
-  sys: {
-    publishedAt: string;
-  };
-  title: string;
-  author: string;
-  authorImage: {
-    url: string;
-  };
-  articleImage: {
-    url: string;
-  };
-  content: {
-    json: any;
-    links: any;
-  };
-  estimatedReadTimeMinutes: number;
-  recommendedArticlesCollection: {
-    items: {
-      sys: {
-        publishedAt: string;
-      };
-      category: Category;
-      slug: string;
-      title: string;
-      description: string;
-      articleImage: {
-        url: string;
-      };
-      author: string;
-      authorImage: {
-        url: string;
-      };
-      estimatedReadTimeMinutes: number;
-    }[];
-  };
-}
 
 interface ArticleProps {
   article: Article;

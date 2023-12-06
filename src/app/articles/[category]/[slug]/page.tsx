@@ -1,4 +1,4 @@
-import { Category } from "@/app/contexts/ThemeSwitcher";
+import Category from "@/app/types/Category";
 import ArticlePageClient from "./page.client";
 import ArticlePageServer from "./page.server";
 
