@@ -1,10 +1,10 @@
 "use server";
-import ArticleGrid, { Article } from "./components/ArticleGrid";
+
+import fetchHomePageData from "./api/fetchHomePageData";
+import ArticleGrid from "./components/ArticleGrid";
 
 async function HomePageServer() {
-  const articles = (await fetch(
-    `${process.env.NEXT_PUBLIC_HOST}/api/articles`
-  ).then((response) => response.json())) as Article[];
+  const articles = await fetchHomePageData();
 
   return <ArticleGrid title={"All Articles"} articles={articles} />;
 }

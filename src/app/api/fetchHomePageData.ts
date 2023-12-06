@@ -1,3 +1,6 @@
+import { Article } from "@/app/components/ArticleGrid";
+import "server-only";
+
 const query = `
 query($preview: Boolean) {
   articleCollection(limit: 10, preview: $preview){
@@ -20,14 +23,12 @@ query($preview: Boolean) {
 }
 `;
 
-export const dynamic = "force-dynamic";
-
-export async function GET() {
+async function fetchHomePageData() {
   const res = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/aa2x2q37oe7p/environments/master`,
     {
-      next: { revalidate: 300 },
       method: "POST",
+      next: { revalidate: 300 },
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.CONTENTFUL_CPA_TOKEN}`,
@@ -43,5 +44,7 @@ export async function GET() {
   const response = await res.json();
   const data = response.data.articleCollection.items;
 
-  return Response.json(data);
+  return data as Article[];
 }
+
+export default fetchHomePageData;

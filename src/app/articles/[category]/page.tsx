@@ -3,9 +3,10 @@ import CategoryPageClient from "./page.client";
 import CategoryPageServer from "./page.server";
 
 function CategoryPage({ params }: { params: { category: Category } }) {
+  const { category } = params;
   return (
-    <CategoryPageClient params={params}>
-      <CategoryPageServer category={params.category} />
+    <CategoryPageClient category={category}>
+      <CategoryPageServer category={category} />
     </CategoryPageClient>
   );
 }

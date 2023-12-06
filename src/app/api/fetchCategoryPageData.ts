@@ -1,13 +1,8 @@
+import "server-only";
 import { Category } from "@/app/contexts/ThemeSwitcher";
+import { Article } from "../components/ArticleGrid";
 
-export const dynamic = "force-dynamic";
-
-export async function GET(
-  request: Request,
-  { params }: { params: { category: Category } }
-) {
-  const category = params.category;
-
+async function fetchCategoryPageData(category: Category) {
   const query = `query($preview: Boolean) {
     articleCollection(where: {category: "${category}"}, limit: 10, preview: $preview) {
       items {
@@ -34,8 +29,8 @@ export async function GET(
   const res = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/aa2x2q37oe7p/environments/master`,
     {
-      next: { revalidate: 300 },
       method: "POST",
+      next: { revalidate: 300 },
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.CONTENTFUL_CPA_TOKEN}`,
@@ -51,5 +46,7 @@ export async function GET(
   const response = await res.json();
   const data = response.data.articleCollection.items;
 
-  return Response.json(data);
+  return data as Article[];
 }
+
+export default fetchCategoryPageData;

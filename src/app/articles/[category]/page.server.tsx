@@ -1,4 +1,5 @@
 "use server";
+import fetchCategoryPageData from "@/app/api/fetchCategoryPageData";
 import ArticleGrid, { Article } from "@/app/components/ArticleGrid";
 import { Category } from "@/app/contexts/ThemeSwitcher";
 import { capitalizeFirstLetter } from "@/app/helpers";
@@ -8,9 +9,7 @@ interface CategoryPageServerProps {
 }
 
 async function CategoryPageServer({ category }: CategoryPageServerProps) {
-  const articles = (await fetch(
-    `${process.env.NEXT_PUBLIC_HOST}/api/articles/${category}`
-  ).then((response) => response.json())) as Article[];
+  const articles = await fetchCategoryPageData(category);
 
   return (
     <ArticleGrid

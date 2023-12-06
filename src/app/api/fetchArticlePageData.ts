@@ -1,10 +1,7 @@
-export const dynamic = "force-dynamic";
+import "server-only";
+import Article from "../components/Article";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { slug: string } }
-) {
-  const slug = params.slug;
+async function fetchArticlePageData(slug: string) {
   const query = `query($preview: Boolean) {
     articleCollection(where: { slug: "${slug}" }, preview: $preview, limit: 1) {
       items {
@@ -55,8 +52,8 @@ export async function GET(
   const res = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/aa2x2q37oe7p/environments/master`,
     {
-      next: { revalidate: 300 },
       method: "POST",
+      next: { revalidate: 300 },
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.CONTENTFUL_CPA_TOKEN}`,
@@ -72,5 +69,7 @@ export async function GET(
   const response = await res.json();
   const data = response.data.articleCollection.items[0];
 
-  return Response.json(data);
+  return data as Article;
 }
+
+export default fetchArticlePageData;

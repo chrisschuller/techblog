@@ -3,10 +3,10 @@ import ThemeSwitcherContext, { Category } from "@/app/contexts/ThemeSwitcher";
 import { useContext, useEffect } from "react";
 
 function ArticlePageClient({
-  params,
+  category,
   children,
 }: {
-  params: { category: Category; slug: string };
+  category: Category;
   children: any;
 }) {
   useEffect(() => {
@@ -15,7 +15,7 @@ function ArticlePageClient({
 
   const { toggleColorScheme } = useContext(ThemeSwitcherContext);
   useEffect(() => {
-    toggleColorScheme(params.category);
+    toggleColorScheme(category);
   }, []);
 
   return <>{children}</>;

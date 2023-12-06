@@ -7,9 +7,10 @@ function ArticlePage({
 }: {
   params: { category: Category; slug: string };
 }) {
+  const { category, slug } = params;
   return (
-    <ArticlePageClient params={params}>
-      <ArticlePageServer category={params.category} slug={params.slug} />
+    <ArticlePageClient category={category}>
+      <ArticlePageServer slug={slug} />
     </ArticlePageClient>
   );
 }
