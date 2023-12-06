@@ -1,41 +1,15 @@
 import "server-only";
 import ArticlePreview from "../types/ArticlePreview";
-
-const query = `
-query($preview: Boolean) {
-  articleCollection(limit: 10, preview: $preview){
-    items{
-      sys{
-        publishedAt
-      }
-      category,
-      slug,
-      title,
-      description,
-      articleImage{url},
-      author,
-      authorImage{
-        url
-      },
-      estimatedReadTimeMinutes
-    }
-  }
-}
-`;
+import homePageQuery from "./queries/homePageQuery";
+import fetchContentfulData from "./shared/fetchContentfulData";
 
 async function fetchHomePageData() {
-  const res = await fetch(
-    `https://graphql.contentful.com/content/v1/spaces/aa2x2q37oe7p/environments/master`,
-    {
-      method: "POST",
-      next: { revalidate: 300 },
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.CONTENTFUL_CPA_TOKEN}`,
-      },
-      body: JSON.stringify({ query, variables: { preview: true } }),
-    }
-  );
+  const query = homePageQuery();
+
+  const res = await fetchContentfulData({
+    query,
+    revalidate: 600,
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
