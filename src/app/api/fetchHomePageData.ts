@@ -8,7 +8,7 @@ async function fetchHomePageData() {
 
   const res = await fetchContentfulData({
     query,
-    revalidate: 600,
+    revalidate: 60,
   });
 
   if (!res.ok) {
