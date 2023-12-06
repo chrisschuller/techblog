@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import styled from "@emotion/styled";
 import GridItem from "./components/GridItem";
-import { Stylable } from "../shared/types";
+import Stylable from "@/app/types/Stylable";
 
 interface ContainerSettings {
   cols?: number;

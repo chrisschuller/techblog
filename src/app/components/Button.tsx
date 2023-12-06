@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { PropsWithChildren } from "react";
-import { Stylable } from "./shared/types";
 import { Theme } from "../theme";
+import Stylable from "../types/Stylable";
 
 type OnClick = Pick<React.HTMLProps<HTMLButtonElement>, "onClick">["onClick"];
 

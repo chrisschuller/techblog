@@ -1,20 +1,9 @@
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
-import { Paragraph, Text } from "./Text";
-import Stack from "./Stack";
+import { Paragraph, Text } from "../components/Text";
+import Stack from "../components/Stack";
+import Article from "../components/Article";
 
-export function convertToGermanDateFormat(isoDateString: string): string {
-  // Parse the ISO date string
-  const date = new Date(isoDateString);
-
-  // Format the date
-  const day = date.getDate().toString().padStart(2, "0");
-  const month = (date.getMonth() + 1).toString().padStart(2, "0"); // getMonth() returns 0-11
-  const year = date.getFullYear();
-
-  return `${day}.${month}.${year}`;
-}
-
-export function createRichtextToReactOptions(article: any) {
+export function createRichtextToReactOptions(article: Article) {
   return {
     preserveWhitespace: true,
     renderMark: {

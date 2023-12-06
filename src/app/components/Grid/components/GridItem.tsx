@@ -1,6 +1,6 @@
+import Stylable from "@/app/types/Stylable";
 import styled from "@emotion/styled";
 import { PropsWithChildren } from "react";
-import { Stylable } from "../../shared/types";
 
 interface GridItemSettings {
   colSpan?: number;

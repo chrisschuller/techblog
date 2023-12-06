@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { CSSProperties, PropsWithChildren } from "react";
-import { Stylable } from "./shared/types";
+import Stylable from "../types/Stylable";
 
 type DirectionType = Pick<CSSProperties, "flexDirection">["flexDirection"];
 type JustifyType = Pick<CSSProperties, "justifyContent">["justifyContent"];

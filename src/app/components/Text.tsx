@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { Stylable } from "./shared/types";
 import { Theme } from "../theme";
 import { ElementType, PropsWithChildren } from "react";
+import Stylable from "../types/Stylable";
 
 interface TextProps extends Stylable {
   size?: keyof Theme["fontSizes"];

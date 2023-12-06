@@ -3,9 +3,9 @@ import Stack from "./Stack";
 import { Text } from "./Text";
 import PreviewImage from "./PreviewImage";
 import Avatar from "./Avatar";
-import { convertToGermanDateFormat } from "./Utils";
 import Link from "next/link";
 import Category from "../types/Category";
+import { convertToGermanDateFormat } from "../helpers";
 
 interface ArticleCardProps {
   id: string;

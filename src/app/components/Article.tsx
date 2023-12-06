@@ -4,13 +4,11 @@ import { Text } from "./Text";
 import PreviewImage from "./PreviewImage";
 import Stack from "./Stack";
 import Avatar from "./Avatar";
-import {
-  convertToGermanDateFormat,
-  createRichtextToReactOptions,
-} from "./Utils";
+import { createRichtextToReactOptions } from "../helpers/createRichtextToReactOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import ArticleGrid from "./ArticleGrid";
 import Article from "@/app/types/Article";
+import { convertToGermanDateFormat } from "../helpers";
 
 const ArticleContainer = styled.div`
   max-width: 600px;

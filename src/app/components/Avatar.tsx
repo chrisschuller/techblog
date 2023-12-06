@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Stylable } from "./shared/types";
+import Stylable from "../types/Stylable";
 
 const AvatarContainer = styled.img<{ size: string }>`
   width: ${({ size }) => size};
