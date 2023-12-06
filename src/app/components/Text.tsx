@@ -52,7 +52,6 @@ export function Text({
 export function Paragraph({
   children,
   size = "md",
-  as,
   ...rest
 }: PropsWithChildren<TextProps>) {
   return (
