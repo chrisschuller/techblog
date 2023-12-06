@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { Category } from "../contexts/ThemeSwitcher";
 import Link from "next/link";
 import { ComponentProps } from "react";
+import Category from "../types/Category";
 
 interface CategoryLinkProps extends ComponentProps<typeof Link> {
   category: Category;

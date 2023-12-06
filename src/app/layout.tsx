@@ -7,9 +7,10 @@ import Main from "./components/Main";
 import Content from "./components/Content";
 import appTheme from "./theme";
 import { useState } from "react";
-import ThemeSwitcher, { Category } from "./contexts/ThemeSwitcher";
+import ThemeSwitcher from "./contexts/ThemeSwitcher";
 import { useParams } from "next/navigation";
 import ThemeProvider from "./contexts/ThemeProvider";
+import Category from "./types/Category";
 
 export default function RootLayout({
   children,

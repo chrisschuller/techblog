@@ -1,6 +1,6 @@
 import "server-only";
-import { Category } from "@/app/contexts/ThemeSwitcher";
-import { Article } from "../components/ArticleGrid";
+import ArticlePreview from "../types/ArticlePreview";
+import Category from "../types/Category";
 
 async function fetchCategoryPageData(category: Category) {
   const query = `query($preview: Boolean) {
@@ -46,7 +46,7 @@ async function fetchCategoryPageData(category: Category) {
   const response = await res.json();
   const data = response.data.articleCollection.items;
 
-  return data as Article[];
+  return data as ArticlePreview[];
 }
 
 export default fetchCategoryPageData;

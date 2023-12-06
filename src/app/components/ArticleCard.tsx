@@ -5,16 +5,7 @@ import PreviewImage from "./PreviewImage";
 import Avatar from "./Avatar";
 import { convertToGermanDateFormat } from "./Utils";
 import Link from "next/link";
-import { Category } from "../contexts/ThemeSwitcher";
-
-{
-  /* <Link
-href={`/articles/${category}/${slug}`}
-key={slug}
-prefetch={false}
-scroll={true}
-> */
-}
+import Category from "../types/Category";
 
 interface ArticleCardProps {
   id: string;

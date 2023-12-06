@@ -1,5 +1,5 @@
 import "server-only";
-import Article from "../components/Article";
+import ArticlePreview from "../types/ArticlePreview";
 
 const query = `
 query($preview: Boolean) {
@@ -44,7 +44,7 @@ async function fetchHomePageData() {
   const response = await res.json();
   const data = response.data.articleCollection.items;
 
-  return data as Article[];
+  return data as ArticlePreview[];
 }
 
 export default fetchHomePageData;
