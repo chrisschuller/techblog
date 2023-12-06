@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const params = useParams();
-  const existingCategory = params?.category as Category;
+  const existingCategory = params.category as Category;
 
   const [theme, setTheme] = useState<{
     darkMode: boolean;
