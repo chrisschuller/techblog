@@ -18,7 +18,7 @@ function articlePageQuery(slug: string) {
               json
               links {
                 assets {
-                  block{sys{id},url, title}
+                  block{sys{id}, url, title, width, height}
                 }
               }
             },

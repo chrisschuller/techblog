@@ -2,6 +2,7 @@ import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 import { Paragraph, Text } from "../components/Text";
 import Stack from "../components/Stack";
 import Article from "../components/Article";
+import Image from "next/image";
 
 export function createRichtextToReactOptions(article: Article) {
   return {
@@ -36,13 +37,24 @@ export function createRichtextToReactOptions(article: Article) {
         );
         const assetUrl = assetBlock?.url;
         const title = assetBlock?.title;
+        const width = assetBlock?.width;
+        const height = assetBlock?.height;
         return (
           <Stack
             direction={"column"}
             align="center"
             style={{ margin: "30px 0" }}
           >
-            <img src={assetUrl} alt={title} style={{ width: "90%" }} />
+            <div style={{ position: "relative", width: "90%" }}>
+              <Image
+                alt={title}
+                src={assetUrl}
+                width={width}
+                height={height}
+                layout="responsive"
+                quality={100}
+              />
+            </div>
           </Stack>
         );
       },

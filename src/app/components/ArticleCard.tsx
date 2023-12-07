@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Stack from "./Stack";
 import { Text } from "./Text";
-import PreviewImage from "./PreviewImage";
+import Image from "next/image";
 import Avatar from "./Avatar";
 import Link from "next/link";
 import Category from "../types/Category";
@@ -61,7 +61,17 @@ function ArticleCard({
         style={{ height: "100%" }}
       >
         <div>
-          <PreviewImage imageUrl={imageUrl} />
+          <div style={{ position: "relative", width: "100%", height: "200px" }}>
+            <Image
+              alt={imageUrl}
+              src={imageUrl}
+              fill
+              sizes="(min-width: 600px) 70vw, 100vw"
+              style={{
+                objectFit: "cover", // cover, contain, none
+              }}
+            />
+          </div>
           <Text size={"h4"} bold>
             {title}
           </Text>

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Stylable from "../types/Stylable";
+import Image from "next/image";
 
 const AvatarContainer = styled.img<{ size: string }>`
   width: ${({ size }) => size};
@@ -15,7 +16,26 @@ interface AvatarProps extends Stylable {
 }
 
 function Avatar({ size = "40px", imageUrl }: AvatarProps) {
-  return <AvatarContainer size={size} src={imageUrl} />;
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: size,
+        height: size,
+      }}
+    >
+      <Image
+        alt={imageUrl}
+        src={imageUrl}
+        fill
+        sizes="(min-width: 600px) 15vw, 25vw"
+        style={{
+          objectFit: "cover", // cover, contain, none
+          borderRadius: "50%",
+        }}
+      />
+    </div>
+  );
 }
 
 export default Avatar;

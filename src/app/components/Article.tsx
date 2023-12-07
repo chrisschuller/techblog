@@ -9,6 +9,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import ArticleGrid from "./ArticleGrid";
 import Article from "@/app/types/Article";
 import { convertToGermanDateFormat } from "../helpers";
+import Image from "next/image";
 
 const ArticleContainer = styled.div`
   max-width: 600px;
@@ -38,7 +39,17 @@ function Article({ article }: ArticleProps) {
             </Text>
           </Stack>
         </Stack>
-        <PreviewImage imageUrl={article.articleImage.url} height="300px" />
+        <div style={{ position: "relative", width: "100%", height: "300px" }}>
+          <Image
+            alt={article.articleImage.url}
+            src={article.articleImage.url}
+            fill
+            sizes="(min-width: 600px) 60vw, 100vw"
+            style={{
+              objectFit: "cover", // cover, contain, none
+            }}
+          />
+        </div>
         {/* Render the content using the contentful rich text library */}
         {documentToReactComponents(article.content.json, renderOptions)}
       </ArticleContainer>
