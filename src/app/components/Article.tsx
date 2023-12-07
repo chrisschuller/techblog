@@ -1,7 +1,6 @@
 "use client";
 import styled from "@emotion/styled";
 import { Text } from "./Text";
-import PreviewImage from "./PreviewImage";
 import Stack from "./Stack";
 import Avatar from "./Avatar";
 import { createRichtextToReactOptions } from "../helpers/createRichtextToReactOptions";
@@ -45,6 +44,7 @@ function Article({ article }: ArticleProps) {
             src={article.articleImage.url}
             fill
             sizes="(min-width: 600px) 60vw, 100vw"
+            loading="eager"
             style={{
               objectFit: "cover", // cover, contain, none
             }}

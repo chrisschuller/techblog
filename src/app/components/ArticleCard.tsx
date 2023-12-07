@@ -67,6 +67,7 @@ function ArticleCard({
               src={imageUrl}
               fill
               sizes="(min-width: 600px) 70vw, 100vw"
+              loading="eager"
               style={{
                 objectFit: "cover", // cover, contain, none
               }}

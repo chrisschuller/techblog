@@ -29,6 +29,7 @@ function Avatar({ size = "40px", imageUrl }: AvatarProps) {
         src={imageUrl}
         fill
         sizes="(min-width: 600px) 15vw, 25vw"
+        loading="eager"
         style={{
           objectFit: "cover", // cover, contain, none
           borderRadius: "50%",

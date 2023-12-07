@@ -53,6 +53,7 @@ export function createRichtextToReactOptions(article: Article) {
                 height={height}
                 layout="responsive"
                 quality={100}
+                loading="eager"
               />
             </div>
           </Stack>
