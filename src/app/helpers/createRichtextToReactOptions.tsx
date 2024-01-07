@@ -6,7 +6,7 @@ import Stack from "../components/Stack";
 import Article from "../components/Article";
 import Image from "next/image";
 // import jsbeautifier from "js-beautify"; // maybe needed later for code formatting
-import hljs from "highlight.js";
+import CodeBlock from "../components/CodeBlock";
 
 export function createRichtextToReactOptions(article: Article) {
   return {
@@ -63,55 +63,15 @@ export function createRichtextToReactOptions(article: Article) {
         const entry = article.content.links.entries.block.find(
           (element: any) => element.sys.id === entryId
         );
-        const entryFilename = entry?.filename;
-        const entryLanguage = entry?.language;
-        const entryContent = entry?.content;
+        const filename = entry?.filename;
+        const language = entry?.language;
+        const content = entry?.content;
         return (
-          <div
-            style={{
-              background: "#282C34",
-              color: "#868c9a",
-              padding: "50px 30px 20px 30px",
-              borderRadius: "10px",
-              fontSize: "14px",
-              overflowY: "auto",
-              maxWidth: "90vw",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                top: "25px",
-                left: "50%",
-                padding: "5px 15px",
-                color: "#ffffff",
-                transform: "translateX(-50%)",
-              }}
-            >
-              {entryFilename}
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                top: "0px",
-                right: "0px",
-                padding: "5px 15px",
-                background: "#15171b",
-                color: "white",
-              }}
-            >
-              {entryLanguage}
-            </div>
-            <pre>
-              <code
-                dangerouslySetInnerHTML={{
-                  __html: hljs.highlight(entryContent, { language: "jsx" })
-                    .value,
-                }}
-              ></code>
-            </pre>
-          </div>
+          <CodeBlock
+            filename={filename}
+            language={language}
+            content={content}
+          />
         );
       },
       [INLINES.HYPERLINK]: (node: any, children: any) => {
