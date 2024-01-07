@@ -73,7 +73,8 @@ export function createRichtextToReactOptions(article: Article) {
               padding: "20px 30px",
               borderRadius: "10px",
               fontSize: "14px",
-              overflowY: "scroll",
+              overflowY: "auto",
+              maxWidth: "90vw",
             }}
           >
             <pre>
