@@ -39,6 +39,10 @@ export default function RootLayout({
       <head>
         <title>Bloggy</title>
         <meta name="description" content="A blog about tech, food and travel" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+        ></link>
       </head>
       <body>
         <ThemeSwitcher.Provider

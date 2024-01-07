@@ -1,19 +1,18 @@
+"use client";
+
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 import { Paragraph, Text } from "../components/Text";
 import Stack from "../components/Stack";
 import Article from "../components/Article";
 import Image from "next/image";
+// import jsbeautifier from "js-beautify"; // maybe needed later for code formatting
+import hljs from "highlight.js";
 
 export function createRichtextToReactOptions(article: Article) {
   return {
     preserveWhitespace: true,
     renderMark: {
       [MARKS.BOLD]: (text: any) => <Text bold>{text}</Text>,
-      [MARKS.CODE]: (text: any) => (
-        <pre>
-          <code>{text}</code>
-        </pre>
-      ),
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
@@ -57,6 +56,35 @@ export function createRichtextToReactOptions(article: Article) {
               />
             </div>
           </Stack>
+        );
+      },
+      [BLOCKS.EMBEDDED_ENTRY]: (node: any, children: any) => {
+        const entryId = node.data.target.sys.id;
+        const entry = article.content.links.entries.block.find(
+          (element: any) => element.sys.id === entryId
+        );
+        const entryContent = entry?.content;
+        console.log(entryContent);
+        return (
+          <div
+            style={{
+              background: "#282C34",
+              color: "#868c9a",
+              padding: "20px 30px",
+              borderRadius: "10px",
+              fontSize: "14px",
+              overflowY: "scroll",
+            }}
+          >
+            <pre>
+              <code
+                dangerouslySetInnerHTML={{
+                  __html: hljs.highlight(entryContent, { language: "jsx" })
+                    .value,
+                }}
+              ></code>
+            </pre>
+          </div>
         );
       },
       [INLINES.HYPERLINK]: (node: any, children: any) => {

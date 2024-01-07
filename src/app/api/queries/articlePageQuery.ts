@@ -20,6 +20,18 @@ function articlePageQuery(slug: string) {
                 assets {
                   block{sys{id}, url, title, width, height}
                 }
+                entries{
+                  block{
+                    sys{
+                      id
+                    }
+                    ... on CodeBlock{
+                      name
+                      language
+                      content
+                    }
+                  }
+                }
               }
             },
             estimatedReadTimeMinutes,
