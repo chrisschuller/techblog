@@ -63,20 +63,46 @@ export function createRichtextToReactOptions(article: Article) {
         const entry = article.content.links.entries.block.find(
           (element: any) => element.sys.id === entryId
         );
+        const entryFilename = entry?.filename;
+        const entryLanguage = entry?.language;
         const entryContent = entry?.content;
-        console.log(entryContent);
         return (
           <div
             style={{
               background: "#282C34",
               color: "#868c9a",
-              padding: "20px 30px",
+              padding: "50px 30px 20px 30px",
               borderRadius: "10px",
               fontSize: "14px",
               overflowY: "auto",
               maxWidth: "90vw",
+              position: "relative",
             }}
           >
+            <div
+              style={{
+                position: "absolute",
+                top: "25px",
+                left: "50%",
+                padding: "5px 15px",
+                color: "#ffffff",
+                transform: "translateX(-50%)",
+              }}
+            >
+              {entryFilename}
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                top: "0px",
+                right: "0px",
+                padding: "5px 15px",
+                background: "#15171b",
+                color: "white",
+              }}
+            >
+              {entryLanguage}
+            </div>
             <pre>
               <code
                 dangerouslySetInnerHTML={{

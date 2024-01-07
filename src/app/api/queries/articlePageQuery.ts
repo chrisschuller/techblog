@@ -27,6 +27,7 @@ function articlePageQuery(slug: string) {
                     }
                     ... on CodeBlock{
                       name
+                      filename
                       language
                       content
                     }
