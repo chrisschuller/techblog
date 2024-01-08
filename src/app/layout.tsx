@@ -11,6 +11,7 @@ import ThemeSwitcher from "./contexts/ThemeSwitcher";
 import { useParams } from "next/navigation";
 import ThemeProvider from "./contexts/ThemeProvider";
 import Category from "./types/Category";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -61,6 +62,7 @@ export default function RootLayout({
             </AppContainer>
           </ThemeProvider>
         </ThemeSwitcher.Provider>
+        <Analytics />
       </body>
     </html>
   );
