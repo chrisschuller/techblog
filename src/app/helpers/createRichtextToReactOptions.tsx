@@ -1,6 +1,13 @@
 "use client";
 
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import {
+  BLOCKS,
+  Block,
+  EntryLinkBlock,
+  INLINES,
+  MARKS,
+  Node,
+} from "@contentful/rich-text-types";
 import { Paragraph, Text } from "../components/Text";
 import Stack from "../components/Stack";
 import Article from "../components/Article";
@@ -58,7 +65,7 @@ export function createRichtextToReactOptions(article: Article) {
           </Stack>
         );
       },
-      [BLOCKS.EMBEDDED_ENTRY]: (node: any, children: any) => {
+      [BLOCKS.EMBEDDED_ENTRY]: (node: Node) => {
         const entryId = node.data.target.sys.id;
         const entry = article.content.links.entries.block.find(
           (element: any) => element.sys.id === entryId
@@ -71,6 +78,7 @@ export function createRichtextToReactOptions(article: Article) {
             filename={filename}
             language={language}
             content={content}
+            style={{ maxWidth: "90vw" }}
           />
         );
       },
